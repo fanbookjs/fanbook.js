@@ -1,0 +1,7 @@
+**/*/.next
+**/*/.turbo
+**/*/coverage
+.yarn
+unocss.css
+.cache
+packages/web-api/src/jsons/*.json

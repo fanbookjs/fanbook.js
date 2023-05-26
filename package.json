@@ -1,0 +1,39 @@
+{
+	"name": "@fanbook/fakebook.js",
+	"private": true,
+	"license": "MIT",
+	"workspaces": [
+		"packages/*"
+	],
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"lint": "turbo run lint",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\""
+	},
+	"devDependencies": {
+		"@types/node": "^20.2.5",
+		"eslint": "^8.41.0",
+		"eslint-config-mahir": "^0.0.26",
+		"prettier": "^2.8.8",
+		"tsup": "^6.7.0",
+		"turbo": "^1.9.7",
+		"typescript": "^5.0.4",
+		"vitest": "^0.31.1"
+	},
+	"contributors": [
+		{
+			"name": "Voxelli",
+			"email": "sabdulrahman971@gmail.com"
+		},
+		{
+			"name": "Parbez",
+			"email": "imranbarbhuiya.fsd@gmail.com"
+		},
+		{
+			"name": "Shoxcy",
+			"email": "sprusty99@gmail.com"
+		}
+	],
+	"packageManager": "yarn@3.5.1"
+}

@@ -1,0 +1,11 @@
+{
+	"name": "@fanbook/rest",
+	"version": "0.0.1",
+	"description": "",
+	"main": "dist/index.js",
+	"scripts": {
+		"test": "vitest run",
+		"build": "tsup"
+	},
+	"license": "MIT"
+}

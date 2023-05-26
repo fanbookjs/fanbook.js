@@ -1,0 +1,11 @@
+{
+	"root": true,
+	"extends": ["mahir/common", "mahir/node", "mahir/typescript", "mahir/prettier"],
+	"ignorePatterns": ["dist"],
+	"parserOptions": {
+		"project": ["./tsconfig.eslint.json", "./packages/*/tsconfig.eslint.json"]
+	},
+	"rules": {
+		"no-warning-comments": "off"
+	}
+}

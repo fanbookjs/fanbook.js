@@ -1,0 +1,23 @@
+{
+	"name": "fanbook.js",
+	"version": "0.0.1",
+	"description": "",
+	"main": "dist/index.js",
+	"scripts": {
+		"test": "vitest run",
+		"build": "tsup"
+	},
+	"keywords": [
+		"fanbook.js",
+		"fanbook",
+		"discord",
+		"discord.js",
+		"js-sdk",
+		"bot",
+		"discord-bot",
+		"discord-bot-sdk",
+		"fanbook-bot",
+		"fanbook-bot-sdk"
+	],
+	"license": "MIT"
+}
