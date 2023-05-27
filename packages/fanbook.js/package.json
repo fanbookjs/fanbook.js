@@ -3,9 +3,32 @@
 	"version": "0.0.1",
 	"description": "",
 	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		"types": "./dist/index.d.ts",
+		"import": "./dist/index.mjs",
+		"require": "./dist/index.js"
+	},
+	"sideEffects": false,
+	"license": "MIT",
 	"scripts": {
+		"lint": "TIMING=1 eslint src --fix --cache -c ../../.eslintrc.json",
+		"build": "tsup",
+		"prepack": "yarn build",
+		"bump": "cliff-jumper",
+		"check-update": "cliff-jumper --dry-run",
 		"test": "vitest run",
-		"build": "tsup"
+		"typecheck": "tsc -p tsconfig.eslint.json"
+	},
+	"devDependencies": {
+		"@favware/cliff-jumper": "^2.0.1",
+		"eslint": "^8.41.0",
+		"eslint-config-mahir": "^0.0.26",
+		"prettier": "^2.8.8",
+		"tsup": "^6.7.0",
+		"typescript": "^5.0.4",
+		"vitest": "^0.31.1"
 	},
 	"keywords": [
 		"fanbook.js",
@@ -19,5 +42,20 @@
 		"fanbook-bot",
 		"fanbook-bot-sdk"
 	],
-	"license": "MIT"
+	"engines": {
+		"node": ">=v16.0.0"
+	},
+	"files": [
+		"dist/**/*.js*",
+		"dist/**/*.mjs*",
+		"dist/**/*.d*"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/fanbookjs/fanbook.js",
+		"directory": "packages/fanbook.js"
+	},
+	"bugs": {
+		"url": "https://github.com/fanbookjs/fanbook.js/issues"
+	}
 }

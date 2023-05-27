@@ -1,0 +1,7 @@
+package:fanbook.js:
+  - packages/fanbook.js/*
+  - packages/fanbook.js/**/*
+
+package:rest:
+  - packages/rest/*
+  - packages/rest/**/*

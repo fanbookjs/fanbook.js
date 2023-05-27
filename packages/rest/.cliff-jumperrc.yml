@@ -1,0 +1,5 @@
+name: rest
+monoRepo: true
+org: fanbook
+packagePath: packages/rest
+tagTemplate: '{{full-name}}@{{new-version}}'

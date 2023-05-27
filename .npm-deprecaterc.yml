@@ -1,0 +1,4 @@
+name: '*canary*'
+verbose: true
+package:
+  - 'fanbook.js'

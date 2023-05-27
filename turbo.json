@@ -1,15 +1,43 @@
 {
-  "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
-  "pipeline": {
-    "build": {
-      "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"]
-    },
-    "lint": {},
-    "dev": {
-      "cache": false,
-      "persistent": true
-    }
-  }
+	"$schema": "https://turborepo.org/schema.json",
+	"pipeline": {
+		"format": {
+			"dependsOn": ["^build"],
+			"inputs": ["../../.prettierrc.json", "../../.prettierignore", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.json"],
+			"outputs": []
+		},
+		"lint": {
+			"dependsOn": ["^build"],
+			"env": ["TIMING"],
+			"inputs": [
+				"../../.eslintrc.json",
+				"../../.prettierrc.json",
+				"../../.prettierignore",
+				"../../tsconfig.base.json",
+				"../../tsconfig.eslint.json",
+				"**/*.ts",
+				"**/*.tsx",
+				"**/*.js",
+				"tsconfig.json",
+				"tsconfig.eslint.json"
+			],
+			"outputs": [".eslintcache"]
+		},
+		"build": {
+			"dependsOn": ["^build"],
+			"inputs": ["../../tsconfig.base.json", "../../tsup.config.js", "**/*.ts", "**/*.tsx", "**/*.js", "tsconfig.json"],
+			"outputs": ["dist/**"]
+		},
+		"test": {
+			"dependsOn": ["^build"],
+			"env": ["NODE_OPTIONS"],
+			"inputs": ["../../vitest.config.ts", "../../tsconfig.base.json", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.json"],
+			"outputs": ["coverage/**"]
+		},
+		"typecheck": {
+			"dependsOn": ["^build"],
+			"inputs": ["../../tsconfig.base.json", "**/*.ts", "**/*.json"],
+			"outputs": ["dist/**", "tsconfig.tsbuildinfo"]
+		}
+	}
 }

@@ -1,0 +1,27 @@
+name: NPM Deprecate PR versions On Merge
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  deprecate-on-merge:
+    name: NPM Deprecate PR versions On Merge
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+      - name: Use Node.js v18
+        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3
+        with:
+          node-version: 18
+          cache: yarn
+          registry-url: https://registry.npmjs.org/
+      - name: Install Dependencies
+        uses: ./.github/yarnCache
+      - name: Deprecate versions
+        run: yarn npm-deprecate --name "*pr-${PR_NUMBER}*" -d -v
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}

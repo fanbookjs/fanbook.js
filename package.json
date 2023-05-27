@@ -9,15 +9,23 @@
 		"build": "turbo run build",
 		"dev": "turbo run dev",
 		"lint": "turbo run lint",
-		"format": "prettier --write \"**/*.{ts,tsx,md}\""
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"typecheck": "turbo run typecheck",
+		"postinstall": "husky install .github/husky"
 	},
-	"devDependencies": {
+	"dependencies": {
+		"@commitlint/cli": "^17.6.3",
+		"@commitlint/config-conventional": "^17.6.3",
+		"@favware/cliff-jumper": "^2.0.1",
+		"@favware/npm-deprecate": "^1.0.7",
 		"@types/node": "^20.2.5",
+		"@vitest/coverage-c8": "^0.31.1",
+		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.41.0",
 		"eslint-config-mahir": "^0.0.26",
 		"prettier": "^2.8.8",
 		"tsup": "^6.7.0",
-		"turbo": "^1.9.7",
+		"turbo": "^1.9.9",
 		"typescript": "^5.0.4",
 		"vitest": "^0.31.1"
 	},
@@ -35,5 +43,29 @@
 			"email": "sprusty99@gmail.com"
 		}
 	],
-	"packageManager": "yarn@3.5.1"
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/fanbookjs/fanbook.js"
+	},
+	"engines": {
+		"node": ">=v16.0.0"
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	},
+	"lint-staged": {
+		"*.{mjs,js,ts}": "eslint --fix --ext mjs,js,ts"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	},
+	"packageManager": "yarn@3.5.1",
+	"devDependencies": {
+		"husky": "^8.0.3",
+		"lint-staged": "^13.2.2"
+	}
 }

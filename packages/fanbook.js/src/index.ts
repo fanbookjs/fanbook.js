@@ -1,1 +1,1 @@
-console.log('Hello World!');
+export const works = 'It works!';

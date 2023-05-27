@@ -1,0 +1,4 @@
+name: fanbook.js
+monoRepo: true
+packagePath: packages/fanbook.js
+tagTemplate: '{{full-name}}@{{new-version}}'
