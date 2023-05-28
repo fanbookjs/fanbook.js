@@ -47,7 +47,7 @@ jobs:
       - name: Install Dependencies
         uses: ./.github/yarnCache
       - name: Compile Projects
-        run: yarn build
+        run: yarn build && yarn typecheck
       - name: Upload fanbook dist folders to artifacts
         uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3
         with:
@@ -81,4 +81,4 @@ jobs:
 
       - name: Upload Coverage
         if: github.repository_owner == 'fanbookjs'
-        uses: ./scripts/uploadCoverage
+        uses: ./.github/uploadCoverage

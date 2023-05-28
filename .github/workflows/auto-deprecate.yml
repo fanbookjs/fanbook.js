@@ -7,7 +7,8 @@ on:
 jobs:
   auto-deprecate:
     name: NPM Auto Deprecate
-    if: github.repository_owner == 'fanbookjs'
+    # TODO: enable later
+    if: github.repository_owner == 'fanbookjs' && false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Project

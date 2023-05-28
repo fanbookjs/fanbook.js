@@ -1,0 +1,16 @@
+name: 'Upload Coverage'
+description: 'Uploads code coverage reports to codecov with separate flags for separate packages'
+runs:
+  using: 'composite'
+  steps:
+    - name: Upload Fanbook Coverage
+      uses: codecov/codecov-action@894ff025c7b54547a9a2a1e9f228beae737ad3c2 # v3
+      with:
+        files: ./packages/fanbook.js/coverage/cobertura-coverage.xml
+        flags: fanbook
+
+    - name: Upload Fanbook Rest Coverage
+      uses: codecov/codecov-action@894ff025c7b54547a9a2a1e9f228beae737ad3c2 # v3
+      with:
+        files: ./packages/rest/coverage/cobertura-coverage.xml
+        flags: rest

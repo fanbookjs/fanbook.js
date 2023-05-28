@@ -11,6 +11,7 @@
 		"lint": "turbo run lint",
 		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
 		"typecheck": "turbo run typecheck",
+		"test": "turbo run test",
 		"postinstall": "husky install .github/husky"
 	},
 	"dependencies": {
